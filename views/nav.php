@@ -21,7 +21,7 @@
         $html .= '  <span>Area '.$area['Area_Name'].'</span>'."\n";
         $html .= '</a></li>'."\n";
     }
-
+    
     $html .= '
                 </ul>
             </nav><!-- .nav-menu -->

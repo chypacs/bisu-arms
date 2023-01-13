@@ -78,22 +78,150 @@
                             <li class="ms-4">Area I 	- 	Vision, Mission, Goals, and Objectives</li>
                             <li class="ms-4">Area II 	- 	Faculty</li>
                             <li class="ms-4">Area III 	- 	Curriculum and Instruction</li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
-                            <li class="ms-4"></li>
+                            <li class="ms-4">Area IV	-	Support to Students</li>
+                            <li class="ms-4">Area V	-	Research</li>
+                            <li class="ms-4">Area VI	-	Extension and Community Involvement</li>
+                            <li class="ms-4">Area VII	-	Library</li>
+                            <li class="ms-4">Area VIII	-	Physical Plant and Facilities</li>
+                            <li class="ms-4">Area IX	-	Laboratories</li>
+                            <li class="ms-4">Area X	-	Administration</li>
                         </ul>
                     </li>    
-                    
+                    <li class="ms-3">Each area is composed of Indicators and Parameters e.g., <br>
+                        <p class="text-center"><b>Area II – Faculty</b></p>
+                        <p class="text-center">Indicators</p>
+                        <table class="table rounded table-bordered">
+                            <thead class="table-primary">
+                                <tr>
+                                <th colspan="1" scope="col"><b>PARAMETER A:</b></th>
+                                <th colspan="3" scope="col">Academic Qualifications and Professional Experience</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td colspan="1">System</td>
+                                <td colspan="3">Inputs and Processes</td>
+                                </tr>
+                                <tr>
+                                <td colspan="1">Implementation</td>
+                                <td colspan="3"></td>
+                                </tr>
+                                <tr>
+                                <td colspan="1">Outcomes</td>
+                                <td colspan="3">Outcomes</td>
+                                </tr>
+                            </tbody>
+                            <thead class="table-primary">
+                                <tr>
+                                <th colspan="1" scope="col"><b>PARAMETER B:</b></th>
+                                <th colspan="3" scope="col">Recruitment, Selection and Orientation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td colspan="1">System</td>
+                                <td colspan="3">Inputs and Processes</td>
+                                </tr>
+                                <tr>
+                                <td colspan="1">Implementation</td>
+                                <td colspan="3"></td>
+                                </tr>
+                                <tr>
+                                <td colspan="1">Outcomes</td>
+                                <td colspan="3">Outcomes</td>
+                                </tr>
+                            </tbody>
+                            <thead class="table-primary">
+                            <tr>
+                                <th colspan="1" scope="col"><b>PARAMETER C:</b></th>
+                                <th colspan="3" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td colspan="1">etc.</td>
+                                <td colspan="3"></td>
+                            </tbody>
+                        </table>
+                    </li>   
                 </ol>
+                <div class="row align-items-md-stretch">
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-6">
+                        <div class="h-100 p-5 text-white bg-primary rounded-3">
+                        <h2>About the System</h2>
+                        <p>This study aims to create and develop a record management system in Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP) for Bohol Island State University - Balilihan Campus.</p>
+                        <button type="button" class="btn btn-light text-primary" data-bs-toggle="modal" data-bs-target="#system">
+                            Click Here!
+                        </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="h-100 p-5 bg-secondary text-white border rounded-3">
+                        <h2>About the Researchers</h2>
+                        <p>These are the following researchers of the AAACCUP Records Management System:</p>
+                        <button type="button" class="btn btn-light text-secondary" data-bs-toggle="modal" data-bs-target="#search">
+                            Click Here!
+                        </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
             </div>
-            
+            </div>
           </div>
         </section><!-- End Portfolio Section -->
 
+                <div class="modal fade modal-fullscreen-sm-down" id="system" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">About the System</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p class="text-justify">This study aims to create and develop a record management system in Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP) for Bohol Island State University - Balilihan Campus.</p>
+                        <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade modal-fullscreen-sm-down" id="search" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">About the Researchers</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-justify">These are the following researchers of the AAACCUP Records Management System:</p>
+                            <br>
+                            <div class="card">
+                                <div class="ribbon-corner">
+                                    <div class="ribbon-content"><i class="bi bi-person-fill mr-2"></i>Yours</div>
+                                </div>
+                                ...
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
       </main><!-- End #main -->';
 
 </main><!-- End #main -->';
+
+<script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+    })
+</script>

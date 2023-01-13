@@ -1780,10 +1780,10 @@ progress {
 }
 
 .table-bordered > :not(caption) > * {
-  border-width: 1px 0;
+  border-width: 3px 0;
 }
 .table-bordered > :not(caption) > * > * {
-  border-width: 0 1px;
+  border-width: 0 3px;
 }
 
 .table-borderless > :not(caption) > * > * {
