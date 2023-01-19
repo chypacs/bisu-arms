@@ -10,7 +10,8 @@ $html = '
               <h2>Files</h2>
                 
                 
-
+            <div class="d-flex flex-row justify-content-between">
+            <div>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i class="bx bx-folder-plus"></i>Create Folder
                 </button>
@@ -63,9 +64,12 @@ $html = '
                     </div>
                 </div>
                 </div>
-                    
-                    
-    
+             </div>       
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>   
+            </div>
             <div class="row" data-aos="fade-up">
               <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">';

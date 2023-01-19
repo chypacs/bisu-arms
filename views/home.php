@@ -7,7 +7,13 @@
                 <h2> HOME </h2>
             </div>
                 <div class="row ms-1" data-aos="fade-up">
+                    <div>
+                    <img src="./assets/img/cover.png" height="400px" width="1000px">
+                    <br>
+                    <br>    
+                </div>
                 <h2> What is AACCUP? </h2>
+                <br>
                 <div class="col-lg-13 ms-2 d-flex flex-column justify-content-center">
                     <p>The accreditation of curricular programs in the Philippines, particularly for state universities and colleges, is the main function of the Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP), Inc. Organized in 1987, though officially registered and recognized under the Securities and Exchange Commission (SEC) on September 4, 1989, it is the youngest of the four (4) accrediting agencies in the country until late 2003. Under its charter, one of the functions, if not the main purpose of AACCUP, is "to develop a mechanism of, and conduct the evaluation of programs and institutions."</p>
                     <br/>
@@ -180,8 +186,13 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <p class="text-justify">This study aims to create and develop a record management system in Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP) for Bohol Island State University - Balilihan Campus.</p>
-                        <br>
+                        <div class="overflow-auto">
+                            <p class="text-justify">The researchers were encouraged to conduct a study in designing and developing an AACCUP records management system that would be greatly benefit for AAACCUP in performing its operations, keeping and retrieving of records faster and easier. This is an administrative system that lessen the burden of handling too laborious and time-consuming tasks brought about by a myriad of records. Therefore, the development of Record Management System for AACCUP was conceived in order to help the organization fro efficient management of all the records handled within the AACCUP members in BISU Balilihan Campus.</p>
+                            <br>
+                            <p class="text-justify">This study aims to design and develop a record management system in Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP) for Bohol Island State University - Balilihan Campus that could be convenient in all aspects of storing information about the school's documents and could be useful as well for the faculty and staff.</p>
+                            <br>
+                            <p class="text-justify">The accreditation of academic programs is done through the AACCUP system, which is primarily for state universities and colleges. AACCUP accreditation is a process in which a tertiary institution evaluates its educational activities, in whole or in part, and seeks an independent judgment to confirm that it substantially achieves its goals and is of comparable quality to comparable institutions. The main goal of AACCUP is to create a mechanism for evaluating institutions and programs. A record management system's main function is to handle records for an organization during their entire life cycle. The management is expected to keep tabs on the creation, maintenance, and disposal of records, as well as the associated commercial dealings.</p>
+                        </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -200,11 +211,56 @@
                         <div class="modal-body">
                             <p class="text-justify">These are the following researchers of the AAACCUP Records Management System:</p>
                             <br>
-                            <div class="card">
-                                <div class="ribbon-corner">
-                                    <div class="ribbon-content"><i class="bi bi-person-fill mr-2"></i>Yours</div>
-                                </div>
-                                ...
+                            <div class="col">
+                                <div class="d-flex flex-row col-md-12">
+                                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-3 shadow-sm h-md-200 position-relative">
+                                        <div class="col p-4 d-flex flex-column position-static">
+                                        <strong class="d-inline-block mb-2 text-primary">Researcher</strong>
+                                        <h3 class="mb-0">John Paul A. Racho</h3>
+                                        <div class="mb-1 text-muted">BSIT 4A Student</div>
+                                        <p class="card-text mb-auto">Hi, my name is John Paul A. Racho, a Fourth year BSIT student from BISU Balilihan Campus.</p>
+                                        <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#pp1">
+                                            More Info
+                                        </button>
+                                    </div>
+                                    <div class="col-auto d-none d-lg-block">
+                                        <img src="./assets/img/pp1.jpg" height="310" width="200">
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row col-md-12">
+                                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-3 shadow-sm h-md-200 position-relative">
+                                        <div class="col p-4 d-flex flex-column position-static">
+                                        <strong class="d-inline-block mb-2 text-primary">Researcher</strong>
+                                        <h3 class="mb-0">James Keneth C. Rasonabe</h3>
+                                        <div class="mb-1 text-muted">BSIT 4A Student</div>
+                                        <p class="card-text mb-auto">Hi, my name is James Keneth C. Rasonabe, a Fourth year BSIT student from BISU Balilihan Campus.</p>
+                                        <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#pp2">
+                                            More Info
+                                        </button>
+                                    </div>
+                                    <div class="col-auto d-none d-lg-block">
+                                        <img src="./assets/img/pp2.jpg" height="310" width="200">
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row col-md-12">
+                                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-3 shadow-sm h-md-200 position-relative">
+                                        <div class="col p-4 d-flex flex-column position-static">
+                                        <strong class="d-inline-block mb-2 text-primary">Researcher</strong>
+                                        <h3 class="mb-0">Almar A. Lumaad</h3>
+                                        <div class="mb-1 text-muted">BSIT 4A Student</div>
+                                        <p class="card-text mb-auto">Hi, my name is Almar A. Lumaad, a Fourth year BSIT student from BISU Balilihan Campus.</p>
+                                        <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#pp3">
+                                            More Info
+                                        </button>
+                                    </div>
+                                    <div class="col-auto d-none d-lg-block">
+                                        <img src="./assets/img/pp3.jpg" height="310" width="200">
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -214,6 +270,90 @@
                     </div>
                 </div>
       </main><!-- End #main -->';
+                <div class="modal fade modal-fullscreen-sm-down" id="pp1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">About John Paul</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="overflow-auto d-flex flex-row">
+                            <div>
+                                <img src="./assets/img/pp1.jpg" height="310" width="200">
+                            </div>
+                            <div class="ms-3">
+                                <p>Name: <b>JOHN PAUL A. RACHO</b></p>
+                                <p>Birthday: <b>June 24, 2001</b></p>
+                                <p>Age: <b>21 years old</b></p>
+                                <p>Address: <b>Sal-ing, Balilihan, Bohol</b></p>
+                                <p>Email Address: <b>johnpaulracho2001@gmail.com</b></p>
+                                <p><i>"Nothing is impossible with God."</i></p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#search">Back</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade modal-fullscreen-sm-down" id="pp2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">About James Keneth</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="overflow-auto d-flex flex-row">
+                            <div>
+                                <img src="./assets/img/pp2.jpg" height="370" width="200">
+                            </div>
+                            <div class="ms-3">
+                                <p>Name: <b>JAMES KENETH C. RASONABE</b></p>
+                                <p>Birthday: <b>May 19, 2001</b></p>
+                                <p>Age: <b>21 years old</b></p>
+                                <p>Address: <b>Haguilanan, Catigbian, Bohol</b></p>
+                                <p>Email Address: <b>jameskenethcrasonabe@gmail. com</b></p>
+                                <p><i>"Go with the flow with the music and the sounds of guitar."</i></p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#search">Back</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade modal-fullscreen-sm-down" id="pp3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">About Almar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="overflow-auto d-flex flex-row">
+                            <div>
+                                <img src="./assets/img/pp3.jpg" height="310" width="200">
+                            </div>
+                            <div class="ms-3">
+                                <p>Name: <b>ALMAR A. LUMAAD</b></p>
+                                <p>Birthday: <b>April 23, 2001</b></p>
+                                <p>Age: <b>21 years old</b></p>
+                                <p>Address: <b>Rosario, Cortes, Bohol</b></p>
+                                <p>Email Address: <b>almarlumaad23@gmail.com</b></p>
+                                <p><i>"Never give up and always keep fighting."</i></p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#search">Back</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
 
 </main><!-- End #main -->';
 
