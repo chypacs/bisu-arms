@@ -553,6 +553,12 @@ section {
   margin-right: 0;
 }
 
+.background{
+  background: linear-gradient(#ed8b0bdc, #626ef5de),url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 .portfolio .portfolio-wrap {
   transition: 0.3s;
   position: relative;

@@ -1,5 +1,5 @@
 <?php
-
+include_once 'config.php';
 $html = '
     <main id="main">
 
@@ -27,12 +27,12 @@ $html = '
                         <p>Add your folder here:</p>
                         <div class="mb-3">
                         <br>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Folder name" required>
+                        <input type="text" class="form-control" name="folder" id="exampleFormControlInput1" placeholder="Folder name" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <button type="button" class="btn btn-primary" name="create">Create</button>
                     </div>
                     </div>
                 </div>
@@ -73,6 +73,12 @@ $html = '
             <div class="row" data-aos="fade-up">
               <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">';
+
+        if(isset($_POST['create'])){
+            $folder = $POST['folder'];
+
+        }
+
 
         // $upload_dir = dirname(__DIR__).'/AACCUP/';
         // if (!empty($_POST)) {

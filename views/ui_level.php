@@ -16,7 +16,7 @@
                         <img src="assets/img/programs/'.$level_key.'program-' . $program_key . '.png" class="img-fluid" alt="">
                         <div class="portfolio-links">
                         <a href="assets/img/programs/'.$level_key.'program-' . $program_key . '.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="'.$title.'"><i class="bx bx-info-circle"></i></a>
-                        <a href="index.php?' . $url . '" title="More Details"><i class="bx bx-link"></i></a>
+                        <a href="index.php?' . $url . '" title="Click Here!"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>';
