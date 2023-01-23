@@ -1,15 +1,22 @@
 <?php
 
-    $sname = "localhost";
-    $unmae = "root";
-    $password = "";
+    define("PAGE_TITLE", "BISU-ARMS");
+    define("AACCUP_FILES", './AACCUP_FILES');
 
-    $db_name = "bisu_arms";
+    define("ADMIN_USERNAME", 'admin');
+    define("ADMIN_PASSWORD", 'admin');
+    define("DB_NAME", 'db_setup');
+    define("DB_HOST", 'localhost');
+    define("DB_USER", "root");
+    define("DB_PASS", "");
 
-    $conn = mysqli_connect($sname, $unmae, $password, $db_name);
+    # Department List
+    define('ICT', 'Information & Communications Technology Deparment');
+    define('ITD', 'Industrial Technology Deparment');
 
-    if(!$conn){
-        echo "Connection failed!";
-    }
+    # Indicators
+    define('SIP', 'SYSTEM INPUTS AND PROCESSES');
+    define('IMP', 'IMPLEMENTATION');
+    define('OUT', 'OUTCOME/S');
 
 ?>

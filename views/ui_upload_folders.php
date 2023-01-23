@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-3 text-center">
                                 <input type="hidden" name="save" value="folders" />
-                                <button class="btn btn-primary py-4 px-5" type="save" value="folders">Upload</button>
+                                <button class="btn btn-primary py-2 px-2" type="save" value="folders">Upload</button>
                             </div>
                         </div>
                     </form>

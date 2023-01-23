@@ -1,5 +1,5 @@
--- CREATE database bisu_ybook;
--- USE bisu_ybook;
+-- CREATE database arms;
+-- USE arms;
 
 --
 -- Table structure for table courses

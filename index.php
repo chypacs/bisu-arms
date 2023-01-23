@@ -8,6 +8,7 @@ if (!isset($_SESSION['logged'])) {
     $_SESSION['logged'] = 'guest';
 }
 
+
 require_once 'config.php';
 require_once 'helper.php';
 require_once 'init.php';
@@ -67,8 +68,25 @@ if ($_GET['m'] == 'area') {
     $_POST['area'] = $sql->getAreaInfo($_GET['akey']);
     $_POST['area_levels'] = $sql_level->getAreaLevelsData($_GET['akey']);
     $_POST['level'] = $sql_level->getLevelInfoFromKey($_GET['lkey']);
-    
-    //print "<pre>"; print_r($_POST); exit;
+
+    $_POST['ay_sel'] = $_SESSION['academic_year_list'][0];
+    if (isset($_POST['create']) && $_POST['create'] == 'ay_folders')  {
+        $_POST['ay_sel'] = $_POST['academic_yr'];
+        global $FILE_LIST;
+        $FILE_LIST = array();
+        $path = AACCUP_FILES.'/'.$_POST['ay_sel'] . '/LEVEL-' . $_POST['level']['Level_Code'] . '/' . $_GET['dept'] . '/AREA-' . $_POST['area']['Area_Code'].'/';
+        recursive_scan($path);
+
+        //print "<pre>$path\n";
+        //print_r($FILE_LIST);
+
+        //$dirs = scandir("./AACCUP_FILES/AY-2019-2020/LEVEL-I/ITD/AREA-I/");
+        //var_dump($dirs);
+        //exit;
+
+    }
+
+    //print "<pre>"; print_r($_POST); print_r($_GET); exit;
     require_once 'views/ui_folders.php';
 } else {
     require_once 'views/ui_home.php';

@@ -38,7 +38,7 @@
                       </div>
                       <div class="col-md-3 text-center">
                           <input type="hidden" name="create" value="ay_folders" />
-                          <button class="btn btn-primary py-4 px-5" type="submit" name="create" value="ay_folders">View Files</button>
+                          <button class="btn btn-primary py-3 px-3" type="submit" name="create" value="ay_folders">View Files</button>
                       </div>
                   </div>
               </form>
