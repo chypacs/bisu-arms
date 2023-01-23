@@ -1,66 +1,148 @@
 <?php
 
-class SQL_Level {
+require_once 'models/db_connect.php';
+
+class SQL_Level extends DB_Connect {
+
+    public $levels_tbl_fields = array(
+        'Area_Key',
+        'Level_Code',
+        'Level_Desc',
+    );
+
+    public $levels_columns = array(
+        'Area_Code',
+        'Level_Code',
+        'Level_Desc',
+    );
+
+    public $dept_tbl_fields = array(
+        'Department_Code',
+        'Department_Name',
+    );
+
+    public $dept_columns = array(
+        'Department_Code',
+        'Department_Name',
+    );
 
     function __construct() 
     {
-
-
+        Parent::__construct();
+        
+        require_once 'models/sql_area.php';
+        $this->area_sql = new SQL_Area;
     }
 
-    public function getAreaLevelList($area)
+    public function getLevelKey($area_key, $level_code)
     {
-        // TODO: get data from database based from passed $area
-        $list = array();
-        $list[1] = array(
-            'Level_Name' => 'PSV',
-        );
-        $list[2] = array(
-            'Level_Name' => 'Level I',
-        );
-        $list[3] = array(
-            'Level_Name' => 'Level II',
-        );
-        $list[4] = array(
-            'Level_Name' => 'Level III',
-        );
+        $sql = "
+            SELECT * 
+            FROM levels
+            WHERE Area_Key = {$area_key}
+                AND Level_Code = '{$level_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $key = 0;
+        foreach ($data as $row) {
+            $key = $row['Level_Key'];
+        }
 
-
-        return $list;
+        return $key;
     }
 
-    public function getAreaLevelPrograms($area)
+    public function getLevelsList()
     {
-        // TODO: get data from database based from passed $area
-        $programs = array();
-        $list = array();
-        $list[1] = array(
-            'Program_Code' => 'BSIT',
-            'Program_Name' => 'Bachelor of Science in Information Technology'
-        );
-        $list[2] = array(
-            'Program_Code' => 'BSCS',
-            'Program_Name' => 'Bachelor of Science in Computer Science'
-        );
-        $list[3] = array(
-            'Program_Code' => 'BSIT-FPSM',
-            'Program_Name' => 'Bachelor of Science in Industrial Technology - Major in Food Preparation and Service Management'
-        );
-        $list[4] = array(
-            'Program_Code' => 'BS-ELEX',
-            'Program_Name' => 'Bachelor of Science in Electronics Technology'
-        );
-        $list[5] = array(
-            'Program_Code' => 'BS-ELEC',
-            'Program_Name' => 'Bachelor of Science in Electrical Technology'
-        );
-        $programs[1] = $list;
-        $programs[2] = $list;
-        $programs[3] = $list;
-        $programs[4] = $list;
-        return $programs;
+        $sql = "
+            SELECT distinct Level_Code, Level_Desc
+            FROM levels
+            ORDER BY Level_Code
+        ";
+        $data = $this->getDataFromTable($sql);
+
+        return $data;
     }
 
+    public function getLevelsData()
+    {
+        $sql = "
+            SELECT *
+            FROM levels as t1
+            LEFT JOIN areas as t2 
+                ON t1.Area_Key = t2.Area_Key
+            ORDER BY Area_Code, Level_Code
+        ";
+        $data = $this->getDataFromTable($sql);
+
+        return $data;
+    }
+
+    public function saveLevels($input)
+    {
+        $table = 'levels';
+        $columns = $this->levels_tbl_fields;
+        $data = array();
+        foreach ($input as $values) {
+            $values['Area_Key'] = $this->area_sql->getAreaKey($values['Area_Code']);
+            $row = array();
+            foreach ($columns as $col) {
+                $row[] = isset($values[$col]) ? $values[$col] : '';
+            }
+            $data[] = $row;
+        }
+        //print "<pre>"; print_r($input); print_r($data); print_r($columns);
+        $res = $this->insertTableRow($table, $columns, $data);
+
+        return $res;
+    }
+
+    public function getDepartmentKey($dept_code)
+    {
+        $sql = "
+            SELECT * 
+            FROM departments
+            WHERE Department_Code = '{$dept_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $key = 0;
+        foreach ($data as $row) {
+            $key = $row['Department_Key'];
+        }
+
+        return $key;
+    }
+
+    public function getDepartmentsData()
+    {
+        $sql = "
+            SELECT *
+            FROM departments
+            ORDER BY Department_Code
+        ";
+        $data = $this->getDataFromTable($sql);
+
+        return $data;
+    }
+
+    public function saveDepartments($input)
+    {
+        $table = 'departments';
+        $columns = $this->dept_tbl_fields;
+        $data = array();
+        foreach ($input as $values) {
+            $row = array();
+            foreach ($columns as $col) {
+                $row[] = isset($values[$col]) ? $values[$col] : '';
+            }
+            $data[] = $row;
+        }
+        //print "<pre>"; print_r($input); print_r($data); print_r($columns);
+        $res = $this->insertTableRow($table, $columns, $data);
+
+        return $res;
+    }
 }
 
 ?>

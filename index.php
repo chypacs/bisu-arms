@@ -1,42 +1,62 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
- 
-    include 'views/header.php';
+}
 
-    require 'models/sql_area.php';
-    $sql_area = new SQL_Area;
-    $_SESSION['area_list'] = $sql_area->getAreaList();
-    $selected_area = (!isset($_GET['area']) || empty($_GET['area'])) ? 'home' : trim($_GET['area']);
-    if (!isset($_SESSION['area_list'][$selected_area])) {
-        $selected_area = 'home';
-    }
-    $_SESSION['selected_area'] = $selected_area;
-    include 'views/nav.php';
-    
-        if(isset($_GET['area']) && isset($_GET['level_key']) && isset($_GET['program_key'])){
-            include 'views/ui_program.php';
-            
-        }
-        else{
-            if ($selected_area != 'home') {
-                require 'models/sql_level.php';
-                $sql_level = new SQL_Level;
-                $_SESSION['level_list'] = $sql_level->getAreaLevelList($selected_area);
-                $_SESSION['programs'] = $sql_level->getAreaLevelPrograms($selected_area);
-                $details = $_SESSION['area_list'][$selected_area];
-                $_SESSION['area_info'] = $details;
-                include 'views/ui_area.php';  
-                include 'views/ui_level.php';
+if (!isset($_SESSION['logged'])) {
+    $_SESSION['logged'] = 'guest';
+}
 
-                
-          
-            } else {   
-                include 'views/home.php';
+require_once 'config.php';
+require_once 'helper.php';
+require_once 'init.php';
+
+//print "<pre>"; print_r($_SESSION); exit;
+
+# Logout
+if (isset($_GET['m']) && $_GET['m'] == 'logout') {
+    logout();
+}
+
+# Login
+if (isset($_GET['m']) && $_GET['m'] == 'login') {
+    if (isset($_POST['login']) && $_POST['login'] == 'submit') {
+        //print "<pre>"; print_r($_POST); exit;
+        $valid = false;
+        if (isset($_POST['username']) && $_POST['username'] !== '' && isset($_POST['password']) && $_POST['password'] !== '') {
+            include_once 'models/db_connect.php';
+            $sql = new DB_Connect; 
+            $valid = $sql->isValidUser($_POST['username'], $_POST['password']);
+            if (!$valid) {
+                $_POST['danger'] = "Either user does not exist or username/password mismatched.";
             }
+        } else {
+            $_POST['danger'] = "Invalid Login.";
+            require_once 'views/login.php';
+            die();
         }
+    } else {
+        require_once 'views/login.php';
+        die();
+    }
+}
 
+if (!isset($_GET['m'])) {
+    $_GET['m'] = 'home';
+}
 
+# Area section
+if ($_GET['m'] == 'area') {
+    require_once 'models/sql_area.php';
+    $sql = new SQL_Area;
+    $_POST['area'] = $sql->getAreaInfo($_GET['akey']);
+    
+    //print "<pre>"; print_r($_POST); exit;
+    require_once 'views/ui_area.php';
 
-    include 'views/footer.php';
+} else {
+    require_once 'views/ui_home.php';
+}
 
 ?>

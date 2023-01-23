@@ -1,60 +1,81 @@
 <?php
 
-class SQL_Area {
+require_once 'models/db_connect.php';
+
+class SQL_Area extends DB_Connect {
+
+    public $tbl_columns = array(
+        'Area_Code',
+        'Area_Name',
+        'Area_Desc',
+    );
 
     function __construct() 
     {
-
-
+        Parent::__construct();
     }
 
-    public function getAreaList()
+    public function getAreaKey($area_code)
     {
-        // TODO: get data from database
-        $list = array();
-        $list['01'] = array(
-            'Area_Name' => '01',
-            'Area_Desc' => 'Vision, Mission, Goals, and Objectives'
-        );
-        $list['02'] = array(
-            'Area_Name' => '02',
-            'Area_Desc' => 'Faculty'
-        );
-        $list['03'] = array(
-            'Area_Name' => '03',
-            'Area_Desc' => 'Curriculum and Instruction'
-        );
-        $list['04'] = array(
-            'Area_Name' => '04',
-            'Area_Desc' => 'Support to Students'
-        );
-        $list['05'] = array(
-            'Area_Name' => '05',
-            'Area_Desc' => 'Research'
-        );
-        $list['06'] = array(
-            'Area_Name' => '06',
-            'Area_Desc' => 'Extension and Community Involvement'
-        );
-        $list['07'] = array(
-            'Area_Name' => '07',
-            'Area_Desc' => 'Library'
-        );
-        $list['08'] = array(
-            'Area_Name' => '08',
-            'Area_Desc' => 'Physical Plant and Facilities'
-        );
-        $list['09'] = array(
-            'Area_Name' => '09',
-            'Area_Desc' => 'Laboratories'
-        );
-        $list['10'] = array(
-            'Area_Name' => '10',
-            'Area_Desc' => 'Administration'
-        );
+        $sql = "
+            SELECT * 
+            FROM areas
+            WHERE Area_Code = '{$area_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $key = 0;
+        foreach ($data as $row) {
+            $key = $row['Area_Key'];
+        }
 
-        return $list;
+        return $key;
     }
+
+    public function getAreaInfo($area_key)
+    {
+        $sql = "
+            SELECT * 
+            FROM areas
+            WHERE Area_Key = {$area_key}
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $info = empty($data) ? array() : $data[0];
+
+        return $info;
+    }
+
+    public function getAreasData()
+    {
+        $sql = "
+            SELECT *
+            FROM areas
+            ORDER BY Area_Code, Area_Name
+        ";
+        $data = $this->getDataFromTable($sql);
+
+        return $data;
+    }
+
+    public function saveAreas($input)
+    {
+        $table = 'areas';
+        $columns = $this->tbl_columns;
+        $data = array();
+        foreach ($input as $values) {
+            $row = array();
+            foreach ($columns as $col) {
+                $row[] = isset($values[$col]) ? $values[$col] : '';
+            }
+            $data[] = $row;
+        }
+        //print "<pre>"; print_r($data); print_r($columns);
+        $res = $this->insertTableRow($table, $columns, $data);
+
+        return $res;
+    }
+
 
 }
 
