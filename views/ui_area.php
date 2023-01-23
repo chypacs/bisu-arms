@@ -1,7 +1,9 @@
 <?php 
     require_once 'views/header.php';
     require_once 'views/menu.php';
+
     //print "<pre>"; print_r($_SESSION);
+    //print "<pre>"; print_r($_POST); exit;
 ?>
 
 <main id="main">
@@ -26,10 +28,10 @@
       </div>
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-        <?php foreach ($_SESSION['area_levels'] as $area_level): ?>
-          <?php foreach ($_SESSION['deparments'] as $dept): ?>
+        <?php foreach ($_POST['area_levels'] as $area_level): ?>
+          <?php foreach ($_SESSION['departments'] as $dept): ?>
             <?php $title = "AREA {$area_level['Area_Code']} > {$area_level['Level_Desc']} >  {$dept['Department_Name']}" ?>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-level<?php echo $area_level['Area_Code'] ?>">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-level<?php echo $area_level['Level_Code'] ?>">
               <div class="portfolio-wrap">
                   <img src="assets/img/levels/<?php echo $dept['Department_Code'] ?>_<?php echo $area_level['Level_Code'] ?>.png" class="img-fluid" alt="">
                   <div class="portfolio-links">

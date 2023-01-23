@@ -64,6 +64,21 @@ class SQL_Level extends DB_Connect {
         return $data;
     }
 
+    public function getAreaLevelsData($area_key)
+    {
+        $sql = "
+            SELECT *
+            FROM levels as t1
+            LEFT JOIN areas as t2 
+                ON t1.Area_Key = t2.Area_Key
+            WHERE t1.Area_Key = {$area_key}
+            ORDER BY Area_Code, Level_Code
+        ";
+        $data = $this->getDataFromTable($sql);
+
+        return $data;
+    }
+
     public function getLevelsData()
     {
         $sql = "

@@ -46,6 +46,20 @@ class SQL_Area extends DB_Connect {
         return $info;
     }
 
+    public function getAreaInfoFromAreaCode($area_code)
+    {
+        $sql = "
+            SELECT * 
+            FROM areas
+            WHERE Area_Code = '{$area_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $info = empty($data) ? array() : $data[0];
+
+        return $info;
+    }
+
     public function getAreasData()
     {
         $sql = "

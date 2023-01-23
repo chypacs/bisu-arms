@@ -19,7 +19,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'logout') {
 }
 
 if (!isset($_GET['m'])) {
-    $_GET['m'] = 'areas';
+    $_GET['m'] = 'academic_yr';
 }
 //print "<pre>"; print_r($_GET); print_r($_POST);  exit;
 
@@ -236,6 +236,35 @@ if ($_GET['m'] == 'areas') {
     );
     //print "<pre>"; print_r($_GET['table']); exit;
     require_once 'views/ui_upload_departments.php';
+
+# Academic Year
+} elseif ($_GET['m'] == 'academic_yr') {
+    if (isset($_POST['create']) && $_POST['create'] == 'ay_folders') {
+        //print "<pre>"; print_r($_GET); print_r($_POST);  exit;
+        $academic_yr = $_POST['academic_yr'];
+        if (empty($academic_yr)) {
+            $_POST['danger'] = 'No Academic Year entered.';   
+        } elseif (!preg_match('/^\d{4,4}-\d{4,4}$/', $academic_yr)) {
+            $_POST['danger'] = 'Incorrect Academic Year format. Follow 20YY-20YY format (e.g 2022-2023).';   
+        } else {
+            if (isset($_FILES['upload_csv']) && !empty($_FILES['upload_csv']['tmp_name'])) {
+                $csv_file = $_FILES['upload_csv']['tmp_name'];
+                //print "<pre>"; print_r($_FILES); exit;
+                if (is_file($csv_file)) {
+                    $structure = getFolderStructure($csv_file, "\t");
+                    require_once 'models/sql_create_folders.php';
+                    $sql = new SQL_Create_Folders;
+                    $res = $sql->createDefaultFoldersForAY($academic_yr, $structure);
+                }
+            } else {
+                $_POST['warning'] = 'No file selected.';
+            }
+            
+        }
+    }
+
+    //print "<pre>"; print_r($_GET['table']); exit;
+    require_once 'views/ui_academic_year.php';
 
 } else {
     header('Location: index.php');

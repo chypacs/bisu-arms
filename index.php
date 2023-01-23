@@ -50,7 +50,10 @@ if (!isset($_GET['m'])) {
 if ($_GET['m'] == 'area') {
     require_once 'models/sql_area.php';
     $sql = new SQL_Area;
+    require_once 'models/sql_level.php';
+    $sql_level = new SQL_Level;
     $_POST['area'] = $sql->getAreaInfo($_GET['akey']);
+    $_POST['area_levels'] = $sql_level->getAreaLevelsData($_GET['akey']);
     
     //print "<pre>"; print_r($_POST); exit;
     require_once 'views/ui_area.php';

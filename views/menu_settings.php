@@ -23,6 +23,15 @@
                     </li>
                 <?php endif; ?>
                 <li>
+                    <a href="settings.php?m=academic_yr" class="nav-link 
+                        <?php if ($_GET['m'] == 'academic_yr'): ?>
+                            active
+                        <?php endif; ?>
+                    ">
+                        <i class="bi bi-calendar-fill"></i> <span>Academic Year</span>
+                    </a>
+                </li>
+                <li>
                     <a href="settings.php?m=areas" class="nav-link 
                         <?php if ($_GET['m'] == 'areas'): ?>
                             active
