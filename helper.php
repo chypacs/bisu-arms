@@ -120,7 +120,10 @@ function getFolderStructure($file, $separator=",")
 function createDir($dir)
 {
     if (!is_dir($dir)) {
-        mkdir($dir);
+        $ret = mkdir($dir);
+        if (!$ret) {
+            //print "<pre>$dir\n";
+        }
     }
 }
 

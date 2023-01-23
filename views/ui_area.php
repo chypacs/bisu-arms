@@ -29,14 +29,17 @@
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
         <?php foreach ($_POST['area_levels'] as $area_level): ?>
-          <?php foreach ($_SESSION['departments'] as $dept): ?>
-            <?php $title = "AREA {$area_level['Area_Code']} > {$area_level['Level_Desc']} >  {$dept['Department_Name']}" ?>
+          <?php foreach ($_SESSION['departments'] as $dept_code => $dept_name): ?>
+            <?php $title = "AREA {$area_level['Area_Code']} > {$area_level['Level_Desc']} >  {$dept_name}" ?>
             <div class="col-lg-4 col-md-6 portfolio-item filter-level<?php echo $area_level['Level_Code'] ?>">
               <div class="portfolio-wrap">
-                  <img src="assets/img/levels/<?php echo $dept['Department_Code'] ?>_<?php echo $area_level['Level_Code'] ?>.png" class="img-fluid" alt="">
+                  <img src="assets/img/levels/<?php echo $dept_code ?>_<?php echo $area_level['Level_Code'] ?>.png" class="img-fluid" alt="">
                   <div class="portfolio-links">
-                    <a href="assets/img/levels/<?php echo $dept['Department_Code'] ?>_<?php echo $area_level['Level_Code'] ?>.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $title ?>"><i class="bx bx-info-circle"></i></a>
-                    <a href="index.php?m=level&lkey=<?php echo $area_level['Level_Key'] ?>" title="Click Here!"><i class="bx bx-link"></i></a>
+                    <a href="assets/img/levels/<?php echo $dept_code ?>_<?php echo $area_level['Level_Code'] ?>.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $title ?>"><i class="bx bx-info-circle"></i></a>
+                    <a href="index.php?m=level&lkey=<?php echo $area_level['Level_Key'] ?>&akey=<?php echo $_GET['akey'] ?>&dept=<?php echo $dept_code ?>" 
+                        target="_blank" title="Click Here!">
+                      <i class="bx bx-link"></i>
+                    </a>
                   </div>
               </div>
             </div>

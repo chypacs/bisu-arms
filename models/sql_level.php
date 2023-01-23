@@ -52,6 +52,34 @@ class SQL_Level extends DB_Connect {
         return $key;
     }
 
+    public function getLevelInfoFromKey($level_key)
+    {
+        $sql = "
+            SELECT * 
+            FROM levels
+            WHERE Level_Key = {$level_key}
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $info = empty($data) ? array() : $data[0];
+
+        return $info;
+    }
+
+    public function getAreaInfoFromCode($level_code)
+    {
+        $sql = "
+            SELECT * 
+            FROM levels
+            WHERE Level_Code = '{$level_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $info = empty($data) ? array() : $data[0];
+
+        return $info;
+    }
+
     public function getLevelsList()
     {
         $sql = "
@@ -127,6 +155,31 @@ class SQL_Level extends DB_Connect {
         }
 
         return $key;
+    }
+
+    public function getDepartmentList()
+    {
+        $data = $this->getDepartmentsData();
+        $list = array();
+        foreach ($data as $row) {
+            $list[$row['Department_Code']] = $row['Department_Name'];
+        }
+
+        return $list;
+    }
+
+    public function getDepartmentInfoFromCode($dept_code)
+    {
+        $sql = "
+            SELECT * 
+            FROM departments
+            WHERE Department_Code = '{$dept_code}'
+            LIMIT 1
+        ";
+        $data = $this->getDataFromTable($sql);
+        $info = empty($data) ? array() : $data[0];
+
+        return $info;
     }
 
     public function getDepartmentsData()

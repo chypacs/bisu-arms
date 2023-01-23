@@ -58,6 +58,18 @@ if ($_GET['m'] == 'area') {
     //print "<pre>"; print_r($_POST); exit;
     require_once 'views/ui_area.php';
 
+# Level / Folders section
+} elseif ($_GET['m'] == 'level') {
+    require_once 'models/sql_area.php';
+    $sql = new SQL_Area;
+    require_once 'models/sql_level.php';
+    $sql_level = new SQL_Level;
+    $_POST['area'] = $sql->getAreaInfo($_GET['akey']);
+    $_POST['area_levels'] = $sql_level->getAreaLevelsData($_GET['akey']);
+    $_POST['level'] = $sql_level->getLevelInfoFromKey($_GET['lkey']);
+    
+    //print "<pre>"; print_r($_POST); exit;
+    require_once 'views/ui_folders.php';
 } else {
     require_once 'views/ui_home.php';
 }
