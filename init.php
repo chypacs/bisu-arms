@@ -12,11 +12,6 @@ $_SESSION['departments'] = $sql_level->getDepartmentList();
 
 require_once 'models/sql_create_folders.php';
 $sql_folder = new SQL_Create_Folders;
-//$_SESSION['academic_year_list'] = $sql_folder->getAcademicYearList();
-$_SESSION['academic_year_list'] = array(
-    '2020-2021',
-    '2021-2022',
-    '2022-2023',
-);
+$_SESSION['academic_year_list'] = $sql_folder->getAcademicYearList();
 
 ?>

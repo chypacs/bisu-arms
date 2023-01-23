@@ -26,7 +26,7 @@
 
       <div class="row g-0 justify-content-center">
           <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-              <form action="settings.php?m=academic_yr" method="POST" enctype="multipart/form-data">
+              <form action="index.php?m=level&lkey=<?php echo $_GET['lkey'] ?>&akey=<?php echo $_GET['akey'] ?>&dept=<?php echo $_GET['dept'] ?>" method="POST" enctype="multipart/form-data">
                   <div class="row g-3">
                       <div class="col-12">
                         <select class="form-control selectpicker"  id="academic_yr" name="academic_yr">

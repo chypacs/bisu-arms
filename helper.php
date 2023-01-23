@@ -127,4 +127,27 @@ function createDir($dir)
     }
 }
 
+/**
+ * 
+ * @function recursive_scan
+ * @description Recursively scans a folder and its child folders
+ * @param $path :: Path of the folder/file
+ * 
+ * */
+function recursive_scan($path)
+{
+    global $FILE_LIST;
+    $path = rtrim($path, '/');
+    if (!is_dir($path)) {
+        $FILE_LIST[] = $path;
+    } else {
+        $files = scandir($path);
+        foreach($files as $file) {
+            if ($file != '.' && $file != '..') {
+                recursive_scan($path . '/' . $file);
+            }
+        }
+    }
+}
+
 ?>

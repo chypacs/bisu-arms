@@ -20,15 +20,8 @@ class SQL_Create_Folders extends DB_Connect {
         $this->folder_dirs = array();        
     }
 
-    public function getAcademicYearList()
-    {
-
-    }
-
     public function createDefaultFoldersForAY($academic_yr, $structure)
     {
-        print_r($structure);
-        exit;
         $this->academic_yr = $academic_yr;
         $this->createMainFolders($structure);
     }
@@ -37,10 +30,10 @@ class SQL_Create_Folders extends DB_Connect {
     {
         $folders = array();
         $path = AACCUP_FILES;
+        createDir($path);
         foreach ($structure as $area_code => $param_list) {
             # AcademicYear > Level > Area > Department > Area folders
             $this->createAreaLevelFolders($area_code);
-            print "<pre>$area_code\n"; continue;
             //print "<pre>"; print_r($this->area_dirs); print_r($param_list);  exit;
             if (!empty($this->area_dirs)) {
                 foreach ($param_list as $param_code => $folder_list) {
@@ -113,7 +106,7 @@ class SQL_Create_Folders extends DB_Connect {
         $path = AACCUP_FILES;
         # Academic Year Folder
         $ay_dir = $path.'/AY-'.$this->academic_yr;
-        print "<pre>AY: $ay_dir\n";
+        //print "<pre>AY: $ay_dir\n";
         createDir($ay_dir);
         # Create AY > Level > Department > Area folders
         $this->area_dirs = array();
@@ -122,27 +115,34 @@ class SQL_Create_Folders extends DB_Connect {
                 if (is_dir($ay_dir)) {
                     # Level folder
                     $level_dir = $ay_dir.'/LEVEL-'.$level['Level_Code'];
-                    print "<pre>Level: $level_dir\n";
+                    //print "<pre>Level: $level_dir\n";
                     createDir($level_dir);
                     if (is_dir($level_dir)) {
                         # Department Folder
                         $dept_dir = $level_dir.'/'.$dept['Department_Code'];
-                        print "<pre>Dept: $dept_dir\n";
+                        //print "<pre>Dept: $dept_dir\n";
                         createDir($dept_dir);
                         if (is_dir($dept_dir)) {
                             # Area Folder
                             $area_dir = $dept_dir.'/AREA-'.$level['Area_Code'];
-                            print "<pre>Area: $area_dir\n";
+                            //print "<pre>Area: $area_dir\n";
                             createDir($area_dir);
                             if (is_dir($area_dir)) {
                                 $this->area_dirs[] = $area_dir;
-                                exit;
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    public function getAcademicYearList()
+    {
+        $path = AACCUP_FILES;
+        $dirs = getFoldersFromDir($path);
+
+        return $dirs;
     }
 
 }

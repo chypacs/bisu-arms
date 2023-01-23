@@ -18,7 +18,7 @@
 
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-                    <form action="settings.php?m=area" method="POST" enctype="multipart/form-data">
+                    <form action="settings.php?m=areas" method="POST" enctype="multipart/form-data">
                         <div class="row g-3">
                             <div class="col-md-9">
                                 <p class="text-primary text-uppercase mb-2">Select TSV (Tab Separated Values) file to upload Areas List</p>

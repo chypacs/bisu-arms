@@ -1,3 +1,4 @@
+
 <ul id="myUL">
   <li><span class="caret">Beverages</span>
     <ul class="nested">
