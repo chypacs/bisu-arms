@@ -18,7 +18,7 @@
         $active = ($selected_area == $area['Area_Name']) ? ' active' : '';
         $html .= '<li><a href="index.php?area='.$area['Area_Name'].'" class="nav-link'.$active.'">'."\n";
         $html .= '  <i class="bx bx-folder"></i> '."\n";
-        $html .= '  <span>Area '.$area['Area_Name'].'</span>'."\n";
+        $html .= '  <span>Area '.$area['Area_Num'].'</span>'."\n";
         $html .= '</a></li>'."\n";
     }
     

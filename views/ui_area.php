@@ -7,7 +7,7 @@
         <section id="portfolio" class="portfolio section-bg">
           <div class="container">
             <div class="section-title">
-              <h2>AREA ' . $_SESSION['area_info']['Area_Name'] . '</h2>
+              <h2>AREA ' . $_SESSION['area_info']['Area_Num'] . '</h2>
               <p><b>' . $_SESSION['area_info']['Area_Desc'] . '</b></p>
             </div>
 
